@@ -18,20 +18,20 @@ namespace Assignment09_Gamma
         this.fillingCalories = fillingCalories;
     }
 
-    public string GetFillingName()
+    public string getName()
     {
         return this.fillingName;
     }
-    public int GetFillingCalories()
+    public int getCalories()
     {
         return this.fillingCalories;
     }
 
-    public void SetFillingName(string fillingName)
+    public void setName(string fillingName)
     {
         this.fillingName = fillingName;
     }
-    public void SetFillingCalories(int fillingCalories)
+    public void setCalories(int fillingCalories)
     {
         this.fillingCalories = fillingCalories;
     }

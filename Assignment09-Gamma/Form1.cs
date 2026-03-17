@@ -30,7 +30,7 @@ namespace Assignment09_Gamma
         }
         List<Bread> employees = new List<Bread>();
 
-        private void fillFromFile(string myFileName, ref string[] myArray)
+        private void fillBreadFromFile(string myFileName, ref Bread myBread)
         {
             StreamReader inputFile;
             if (File.Exists(myFileName))
@@ -38,8 +38,8 @@ namespace Assignment09_Gamma
                 inputFile = File.OpenText(myFileName);
                 while (!inputFile.EndOfStream)
                 {
-                    myArray = addElement(myArray);
-                    myArray[myArray.Length - 1] = inputFile.ReadLine().ToUpper();
+                    string line = inputFile.ReadLine();
+                    myBread.setName();
                 }
                 inputFile.Close();
             }

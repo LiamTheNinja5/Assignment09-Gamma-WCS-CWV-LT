@@ -18,20 +18,20 @@ namespace Assignment09_Gamma
           this.condimentCalories = condimentCalories;
       }
 
-      public string GetCondimentName()
+      public string getName()
       {
           return this.condimentName;
       }
-      public int GetCondimentCalories()
+      public int getCalories()
       {
           return this.condimentCalories;
       }
 
-      public void SetCondimentName(string condimentName)
+      public void setName(string condimentName)
       {
           this.condimentName = condimentName;
       }
-      public void SetCondimentCalories(int condimentCalories)
+      public void setCalories(int condimentCalories)
       {
           this.condimentCalories = condimentCalories;
       }
