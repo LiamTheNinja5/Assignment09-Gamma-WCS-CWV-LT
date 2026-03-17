@@ -147,8 +147,8 @@
             // pnlButtons
             // 
             this.pnlButtons.BackColor = System.Drawing.Color.Transparent;
-            this.pnlButtons.Controls.Add(this.btnExit);
             this.pnlButtons.Controls.Add(this.btnSubmit);
+            this.pnlButtons.Controls.Add(this.btnExit);
             this.pnlButtons.Location = new System.Drawing.Point(214, 606);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(200, 49);
@@ -169,9 +169,10 @@
             this.btnSubmit.Location = new System.Drawing.Point(24, 12);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 1;
+            this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "&Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // Form1
             // 
