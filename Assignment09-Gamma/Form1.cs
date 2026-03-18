@@ -88,7 +88,7 @@ namespace Assignment09_Gamma
             cmbFilling.Text = "Select a filling";
 
             cxbCondiments.Enabled = false;
-
+            //TODO: Clear the checked list box of any previous selections.
 
             btnSubmit.Text = "&Start";
             btnSubmit.Enabled = true;
@@ -123,6 +123,8 @@ namespace Assignment09_Gamma
         {
             if (btnExit.Text == "&Exit")
             {
+                // Display the slogan before closing the program.
+                MessageBox.Show("Thank you for eating with us! Rember to keep calm and sandwich on!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
 
@@ -162,7 +164,45 @@ namespace Assignment09_Gamma
                     btnSubmit.Text = "&Submit";
                     break;
                 case 3:
+                    cxbCondiments.Enabled = false;
 
+                    // Create the sandwich object with the user's selections.
+                    sandwich = new Sandwich((Bread)cmbBread.SelectedItem, (SandwichFilling)cmbFilling.SelectedItem, cxbCondiments.CheckedItems.Cast<Condiment>().ToList());
+
+
+                    // Calculate the total calories of the sandwich by adding the calories of the bread, filling, and condiments.
+                    double condimentsTotal = 0;
+
+                    foreach (var c in sandwich.getCondiments())
+                    {
+                        condimentsTotal += c.getCalories();
+                    }
+
+                    // Get the total calories of the sandwich by adding the calories of the bread, filling, and condiments.
+                    double totalCal = sandwich.getBread().getCalories()+ sandwich.getFilling().getCalories()+ condimentsTotal;
+
+
+                    //get the names of the condiments into a string
+                    List<Condiment> condiments = sandwich.getCondiments();
+                    string condimentNames = "";
+                    if (condiments.Count > 0)
+                    {
+                        for (int i = 0; i < condiments.Count; i++)
+                        {
+                            condimentNames = condimentNames + (" "+condiments[i].getName());
+                        }
+                    }
+                    else
+                    {
+                        condimentNames = "no condiments";
+                    }
+                    // Show order summary to the user with the total calories of the sandwich.
+                    MessageBox.Show("Your Bread is " + sandwich.getBread() + ". Your Filling is " + sandwich.getFilling() + ". Your condiments are:" + condimentNames + ". For a total of " + totalCal + " calories.", "Sandwich Calories", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    break;
+                case 4:
+                    //Restart the program
+                    fourmSetup();
                     break;
             }
 
