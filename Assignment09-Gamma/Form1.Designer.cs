@@ -67,6 +67,7 @@
             this.cmbBread.Name = "cmbBread";
             this.cmbBread.Size = new System.Drawing.Size(216, 21);
             this.cmbBread.TabIndex = 1;
+            this.cmbBread.SelectedIndexChanged += new System.EventHandler(this.cmbBread_SelectedIndexChanged);
             // 
             // pnlBread
             // 
@@ -116,6 +117,7 @@
             this.cmbFilling.Name = "cmbFilling";
             this.cmbFilling.Size = new System.Drawing.Size(216, 21);
             this.cmbFilling.TabIndex = 1;
+            this.cmbFilling.SelectedIndexChanged += new System.EventHandler(this.cmbFilling_SelectedIndexChanged);
             // 
             // pnlCondiments
             // 

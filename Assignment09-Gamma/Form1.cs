@@ -32,8 +32,12 @@ namespace Assignment09_Gamma
         List<Bread> breadList = new List<Bread>();
         List<SandwichFilling> fillingList = new List<SandwichFilling>();
         List<Condiment> condimentList = new List<Condiment>();
+
         // User's sandwich that they are building.
         Sandwich sandwich;
+
+        // Which step the user is on in the form.
+        int fourmIndex;
 
         // load the data from the files into the lists depending on the file name.
         // the files need to be named "bread.txt", "filling.txt", and "condiments.txt" for the program to work correctly.
@@ -76,39 +80,105 @@ namespace Assignment09_Gamma
         // set the form up to be ready for the user to use it, hiding all the panels.
         private void fourmSetup()
         {
-            pnlFilling.Visible = false;
-            pnlCondiments.Visible = false;
-            pnlButtons.Visible = false;
+            // Disable and set the default text of the combo boxes and checked list box.
+            cmbBread.Enabled = false;
+            cmbBread.Text = "Select a bread";
+
+            cmbFilling.Enabled = false;
+            cmbFilling.Text = "Select a filling";
+
+            cxbCondiments.Enabled = false;
+
+
+            btnSubmit.Text = "&Start";
+            btnSubmit.Enabled = true;
+
+            btnExit.Text = "&Exit";
+
+            fourmIndex = 0;
+
+            // set the sandwich to a new sandwich object (this way it can be reset).
+            sandwich = new Sandwich();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
         
             standardFormSetup(btnSubmit, btnExit);
-            fourmSetup();
-
+            
             // fill the lists with the data from the files.
             fillFromFile("bread.txt");
             fillFromFile("fillings.txt");
             fillFromFile("condiments.txt");
 
-            // set the data source for the combo boxes to the lists.
+            // set the data source of the combo boxes and checked list box to the lists.
             cmbBread.DataSource = breadList;
+            cmbFilling.DataSource = fillingList;
+            cxbCondiments.DataSource = condimentList;
+
+            fourmSetup();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            if (btnExit.Text == "&Exit")
+            {
+                Close();
+            }
+
+            if (btnExit.Text == "&Restart")
+            {
+                fourmSetup();
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(cmbBread.SelectedItem == null || cmbFilling.SelectedItem == null)
+
+            // Index 0: User has not started.
+            // Index 1: User has selected bread
+            // Index 2: User has selected bread and filling.
+            // Index 3: User has selected bread, filling, condiments.
+
+            switch (fourmIndex)
             {
-                MessageBox.Show("Please select a bread and a filling");
+                // Enable Bread
+                case 0:
+                    cmbBread.Enabled = true;
+
+                    btnSubmit.Enabled = false;
+                    btnSubmit.Text = "&Next";
+                    break;
+                // Disable Bread, Enable fillings
+                case 1:
+                    cmbBread.Enabled = false;
+                    cmbFilling.Enabled = true;
+                    btnSubmit.Enabled = false;
+                    break;
+                // Disable fillings, enable condiments
+                case 2:
+                    cmbFilling.Enabled = false;
+                    cxbCondiments.Enabled = true;
+                    btnSubmit.Text = "&Submit";
+                    break;
+                case 3:
+
+                    break;
             }
-            //Part 2
+
             
+            fourmIndex++;
+        }
+
+        private void cmbBread_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSubmit.Enabled = true;
+
+        }
+
+        private void cmbFilling_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSubmit.Enabled = true;
         }
     }
 
