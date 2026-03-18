@@ -8,8 +8,9 @@ namespace Assignment09_Gamma
 {
     internal class Bread
     {
-        public class Bread
+        public Bread()
         {
+        }
             //TODO: FIX bread
             private string breadName;
             private int breadCalories;
@@ -43,6 +44,6 @@ namespace Assignment09_Gamma
                 return this.breadName;
             }
         }
-    }
+    
 
 }
