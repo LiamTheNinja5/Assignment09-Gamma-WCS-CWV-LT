@@ -140,7 +140,8 @@ namespace Assignment09_Gamma
             // Index 0: User has not started.
             // Index 1: User has selected bread
             // Index 2: User has selected bread and filling.
-            // Index 3: User has selected bread, filling, condiments.
+            // Index 3: User has selected bread, filling, condiments. Show the order summary to the user.
+            // Index 4: Start the program over again.
 
             switch (fourmIndex)
             {
@@ -163,6 +164,7 @@ namespace Assignment09_Gamma
                     cxbCondiments.Enabled = true;
                     btnSubmit.Text = "&Submit";
                     break;
+                // Disable condiments, create the sandwich object, and show the order summary to the user.
                 case 3:
                     cxbCondiments.Enabled = false;
 
@@ -170,7 +172,7 @@ namespace Assignment09_Gamma
                     sandwich = new Sandwich((Bread)cmbBread.SelectedItem, (SandwichFilling)cmbFilling.SelectedItem, cxbCondiments.CheckedItems.Cast<Condiment>().ToList());
 
 
-                    // Calculate the total calories of the sandwich by adding the calories of the bread, filling, and condiments.
+                    // Calculate the total calories of the condiments.
                     double condimentsTotal = 0;
 
                     foreach (var c in sandwich.getCondiments())
@@ -212,15 +214,37 @@ namespace Assignment09_Gamma
 
         private void cmbBread_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Allow the user to move on after they have made a selection.
             btnSubmit.Enabled = true;
 
         }
 
         private void cmbFilling_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Allow the user to move on after they have made a selection.
             btnSubmit.Enabled = true;
         }
     }
 
     
 }
+
+
+/*
+ * 
+
+What concepts did your team find challenging about this program? (Please be specific)
+    WCS - I found rembering to comment my code to be challenging, as when working with others you need comments to explain what your code is doing.
+    CWV -
+    LT  -
+
+What did your team learn in this program? (Please be specific)
+    WCS - I learned how to work with others on programming projects.
+    CWV -
+    LT  -
+
+List the names of everyone on the team and give each member a percentage base on their contribution and explain why you gave them that percentage.
+    William Sneller   - 
+    La'Trell Thomas   -
+    Caroline Voorheis -
+*/
