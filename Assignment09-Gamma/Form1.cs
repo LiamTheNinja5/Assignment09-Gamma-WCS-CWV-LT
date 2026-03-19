@@ -228,21 +228,13 @@ namespace Assignment09_Gamma
 }
 
 
-/*
- * 
+/* 
+    Assignemnt 09 - William Sneller - La'Trell Thomas - Caroline Voorheis    
 
 What concepts did your team find challenging about this program? (Please be specific)
-    WCS - I found rembering to comment my code to be challenging, as when working with others you need comments to explain what your code is doing.
-    CWV -
-    LT  -
+    - we found commentting our code to be challenging, as when working with others you need comments to explain what your code is doing.
 
 What did your team learn in this program? (Please be specific)
-    WCS - I learned how to work with others on programming projects.
-    CWV -
-    LT  -
+    - we learned how to work with others on programming projects.
 
-List the names of everyone on the team and give each member a percentage base on their contribution and explain why you gave them that percentage.
-    William Sneller   - 
-    La'Trell Thomas   -
-    Caroline Voorheis -
 */
