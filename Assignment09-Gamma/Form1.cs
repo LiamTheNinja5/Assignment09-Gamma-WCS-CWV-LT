@@ -88,7 +88,6 @@ namespace Assignment09_Gamma
             cmbFilling.Text = "Select a filling";
 
             cxbCondiments.Enabled = false;
-            //TODO: Clear the checked list box of any previous selections.
 
             btnSubmit.Text = "&Start";
             btnSubmit.Enabled = true;
@@ -123,8 +122,6 @@ namespace Assignment09_Gamma
         {
             if (btnExit.Text == "&Exit")
             {
-                // Display the slogan before closing the program.
-                MessageBox.Show("Thank you for eating with us! Rember to keep calm and sandwich on!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
 
@@ -199,12 +196,13 @@ namespace Assignment09_Gamma
                         condimentNames = "no condiments";
                     }
                     // Show order summary to the user with the total calories of the sandwich.
+                    btnSubmit.Text = "&Finish";
                     MessageBox.Show("Your Bread is " + sandwich.getBread() + ". Your Filling is " + sandwich.getFilling() + ". Your condiments are:" + condimentNames + ". For a total of " + totalCal + " calories.", "Sandwich Calories", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     break;
                 case 4:
-                    //Restart the program
-                    fourmSetup();
+                    //Exit the program, and show the slogan.
+                    MessageBox.Show("Thank you for eating with us! Rember to keep calm and sandwich on!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
                     break;
             }
 
