@@ -102,9 +102,9 @@ namespace Assignment09_Gamma
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        
+
             standardFormSetup(btnSubmit, btnExit);
-            
+
             // fill the lists with the data from the files.
             fillFromFile("bread.txt");
             fillFromFile("fillings.txt");
@@ -144,6 +144,7 @@ namespace Assignment09_Gamma
             {
                 // Enable Bread
                 case 0:
+                    cmbBread.DropDownStyle = ComboBoxStyle.DropDownList;
                     cmbBread.Enabled = true;
 
                     btnSubmit.Enabled = false;
@@ -152,6 +153,7 @@ namespace Assignment09_Gamma
                 // Disable Bread, Enable fillings
                 case 1:
                     cmbBread.Enabled = false;
+                    cmbFilling.DropDownStyle = ComboBoxStyle.DropDownList;
                     cmbFilling.Enabled = true;
                     btnSubmit.Enabled = false;
                     break;
@@ -178,7 +180,7 @@ namespace Assignment09_Gamma
                     }
 
                     // Get the total calories of the sandwich by adding the calories of the bread, filling, and condiments.
-                    double totalCal = sandwich.getBread().getCalories()+ sandwich.getFilling().getCalories()+ condimentsTotal;
+                    double totalCal = sandwich.getBread().getCalories() + sandwich.getFilling().getCalories() + condimentsTotal;
 
 
                     //get the names of the condiments into a string
@@ -188,7 +190,7 @@ namespace Assignment09_Gamma
                     {
                         for (int i = 0; i < condiments.Count; i++)
                         {
-                            condimentNames = condimentNames + (" "+condiments[i].getName());
+                            condimentNames = condimentNames + (" " + condiments[i].getName());
                         }
                     }
                     else
@@ -197,16 +199,16 @@ namespace Assignment09_Gamma
                     }
                     // Show order summary to the user with the total calories of the sandwich.
                     btnSubmit.Text = "&Finish";
-                    MessageBox.Show("Your Bread is " + sandwich.getBread() + ". Your Filling is " + sandwich.getFilling() + ". Your condiments are:" + condimentNames + ". For a total of " + totalCal + " calories.", "Sandwich Calories", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your bread is: " + "(" + sandwich.getBread() + ")" + ". Your filling is: " + "(" + sandwich.getFilling() + ")" + ". Your condiments are: " + "(" + condimentNames + ")" + ". For a total of " + totalCal + " calories.", "Sandwich Calories", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 4:
                     //Exit the program, and show the slogan.
-                    MessageBox.Show("Thank you for eating with us! Rember to keep calm and sandwich on!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thank you for eating with us! Remember to keep calm and sandwich on!", "Thank you!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                     break;
             }
 
-            
+
             fourmIndex++;
         }
 
@@ -224,7 +226,7 @@ namespace Assignment09_Gamma
         }
     }
 
-    
+
 }
 
 
